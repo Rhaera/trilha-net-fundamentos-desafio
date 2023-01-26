@@ -48,14 +48,33 @@ namespace DesafioFundamentos.Models
                 // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
                 // *IMPLEMENTE AQUI*
                 
-                int horas = int.Parse(Console.ReadLine());
-                decimal valorTotal = precoInicial + horas * precoPorHora; 
+                int horas = 0;
+                string? hora = Console.ReadLine();
+
+                if (hora != null) {
+                        horas = int.Parse(hora);
+                    } else {
+                        Console.WriteLine("Por favor, insira um valor inteiro para as horas.");
+                    }
+
+                // try {
+                //     if (hora != null) {
+                //         horas = int.Parse(hora);
+                //     } else {
+                //         Console.WriteLine("Por favor, insira um valor inteiro para as horas.");
+                //     }       
+                // } catch (Exception e) {
+                //      Console.WriteLine($"Por favor, insira um valor inteiro para as horas. Erro encontrado: {e.Message}");
+                // }
+
+                decimal horaDecimal = Convert.ToDecimal(horas); 
+                decimal valorTotal = precoInicial + horaDecimal * precoPorHora;
 
                 // TODO: Remover a placa digitada da lista de veículos
                 // *IMPLEMENTE AQUI*
                 veiculos.Remove(placa);
 
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {0:0.00}", valorTotal);
+                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
             }
             else
             {
